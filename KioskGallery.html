@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kiosk 1080">
+    <meta name="author" content="Vlad">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Kiosk</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/kiosk.css" rel="stylesheet" />
+    <link href="js/libs/font-awesome.css" rel="stylesheet" type="text/css"/>
+
+    <script src="js/libs/jquery-2.1.0.min.js"></script>
+    <script src="js/libs/underscore-min.js"></script>
+    <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+
+</head>
+<body>
+<div>
+    Header
+</div>
+<div>
+    <div id="ImagesGallery">
+        <style>
+
+            #imagesrows .drum{
+               float: left;
+                width: 200px;
+                height: 1000px;
+                background-color:#EEEEEE;
+                margin: 10px;
+            }
+        </style>
+        <div id="gal1" class="drum">
+
+        </div>
+        <div id="gal22" class="drum">
+
+        </div>
+        <div id="gal3" class="drum">
+
+        </div>
+        <div id="gal4" class="drum">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/libs/hammer.min.js"></script>
+<script src="js/gallery/ImagesPreloader.js"></script>
+<script src="js/gallery/ImageDrag.js"></script>
+<script src="js/gallery/ImagesRow2.js"></script>
+<script src="js/gallery/MouseController.js"></script>
+<script src="js/gallery/gallery2.js"></script>
+<script>
+    $(document).ready(function(){
+
+        // console.log($('#mainview').width()+'x'+$('#mainview' ).height());
+        var width  = $('#mainview').width();
+        var height  = $('#mainview' ).height();
+
+        var cols = 5;
+        var rows = 7;
+        if(width<500){
+            rows=5;
+            cols=4;
+        }
+
+        var options={
+            gals:[
+                {
+                    id:"#col1"
+                },{
+                    id:"#col22"
+                },{
+                    id:"#col3"
+                },{
+                    id:"#col4"
+                }
+            ],
+            canvasWidth:width,
+            canvasHeight:height,
+            getimages:'getimages',
+            thumbWidth:150,
+            thumbHeight:150,
+            thumbDistance:200,
+            rowHeight:200,
+            rowWidth:1060,
+            rows:6,
+            cols:6,
+            prviewPaddingX:80,
+            prviewPaddingY:50,
+            previwWidth:900,
+            previwHeight:1200
+        }
+
+        var gal = new gallery2.Main($('#ImagesGallery'),options);
+    })
+</script>
+</body>
+</html>
